@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCR Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a class="brand" href="KCR.html">KCR</a>
+            <div class="nav-links">
+                <a href="services.html">Services</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="contact.html">Contact</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="login.html">Account</a>
+                <a class="btn btn-primary" href="start-order.html">Start Order</a>
+                <button id="auth-btn" class="btn" aria-haspopup="dialog">Log in</button>
+                <button id="cart-btn" class="btn btn-ghost" aria-haspopup="dialog">Cart (<span id="cart-count">0</span>)</button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="modal-auth" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-content">
+                <h3 id="modal-title">Log in</h3>
+                <form id="auth-form">
+                    <label for="auth-email">Email</label>
+                    <input id="auth-email" type="email" required placeholder="you@example.com">
+                    <label for="auth-pass">Password</label>
+                    <input id="auth-pass" type="password" required placeholder="password">
+                    <div class="row mt-3">
+                            <button type="submit" class="btn btn-primary">Continue</button>
+                            <button type="button" data-close class="btn btn-secondary">Close</button>
+                        </div>
+                </form>
+                <p class="muted mt-3">This demo stores a simple user record in your browser <code>localStorage</code>. Use any email/password to sign up or log in.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="modal-cart" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <div class="modal-content">
+                <h3>Your Cart</h3>
+                <div id="cart-items"></div>
+                <div class="row mt-3 justify-between align-center">
+                    <strong>Total: $<span id="cart-total">0.00</span></strong>
+                    <div class="row" style="gap:8px">
+                        <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+                        <button data-close class="btn btn-secondary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="hero container">
+    <div class="hero-content">
+        <h1>Kristyanong Custom Reprints</h1>
+        <p class="muted">Printing your ideas into reality — tees, posters, stickers and more.</p>
+        <div class="mt-4">
+            <a class="btn btn-primary" href="start-order.html">Start an Order</a>
+            <a class="btn btn-secondary" href="services.html" style="margin-left:12px">View Services</a>
+        </div>
+    </div>
+    <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1558888403-5a0a2d8f8f6f?auto=format&fit=crop&w=1200&q=60" alt="printing" />
+    </div>
+</section>
+
+<section id="features" class="container">
+    <h2 class="section-title">Services</h2>
+    <div class="grid cols-4 mt-4">
+        <article class="card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=60" alt="tshirt"></div>
+            <h3><a href="product-shirt.html">T-Shirt Printing</a></h3>
+            <p class="muted">DTG & screen printing, one-offs and bulk runs.</p>
+            <div class="meta"><div class="muted">From $9.99</div><button class="btn btn-primary small" data-add-to-cart data-id="shirt-basic" data-name="Basic T-Shirt" data-price="9.99">Add</button></div>
+        </article>
+
+        <article class="card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1520975916054-7a71c8992b52?auto=format&fit=crop&w=900&q=60" alt="poster"></div>
+            <h3><a href="product-poster.html">Poster & Banner</a></h3>
+            <p class="muted">Large-format prints, indoor/outdoor displays.</p>
+            <div class="meta"><div class="muted">From $19.99</div><button class="btn btn-primary small" data-add-to-cart data-id="poster-a2" data-name="A2 Poster" data-price="19.99">Add</button></div>
+        </article>
+
+        <article class="card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1561445859-184f71a3347d?auto=format&fit=crop&w=900&q=60" alt="stickers"></div>
+            <h3><a href="product-stickers.html">Stickers & Labels</a></h3>
+            <p class="muted">Custom stickers, sheets and vinyl labels.</p>
+            <div class="meta"><div class="muted">From $4.99</div><button class="btn btn-primary small" data-add-to-cart data-id="stickers-50" data-name="50 Stickers" data-price="4.99">Add</button></div>
+        </article>
+
+        <article class="card">
+            <div class="card-media"><img src="https://images.unsplash.com/photo-1532635240-2133d5f1b7a2?auto=format&fit=crop&w=900&q=60" alt="design"></div>
+            <h3><a href="product-design.html">Design Help</a></h3>
+            <p class="muted">Mockups and file prep for print-ready results.</p>
+            <div class="meta"><div class="muted">From $29</div><button class="btn btn-primary small" data-add-to-cart data-id="design-basic" data-name="Design Mockup" data-price="29.00">Add</button></div>
+        </article>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="about-content">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>We are a company that values excellence and innovation. Our mission is to provide the best solutions for our customers.</p>
+        </div>
+    </div>
+</section>
+
+<section id="showcase" class="showcase">
+    <div class="container mt-3">
+        <div class="showcase-scroll">
+            <div class="tile">
+                <img src="https://images.unsplash.com/photo-1545235617-9465d7f3a1f3?auto=format&fit=crop&w=900&q=60" alt="Showcase Image 1">
+                <div class="glass"><strong>Custom Tees</strong><div class="muted">Vivid DTG prints</div></div>
+            </div>
+            <div class="tile">
+                <img src="https://images.unsplash.com/photo-1520975916054-7a71c8992b52?auto=format&fit=crop&w=900&q=60" alt="Showcase Image 2">
+                <div class="glass"><strong>Posters</strong><div class="muted">Large-format prints</div></div>
+            </div>
+            <div class="tile">
+                <img src="https://images.unsplash.com/photo-1561445859-184f71a3347d?auto=format&fit=crop&w=900&q=60" alt="Showcase Image 3">
+                <div class="glass"><strong>Stickers</strong><div class="muted">Vinyl and labels</div></div>
+            </div>
+            <div class="tile">
+                <img src="https://images.unsplash.com/photo-1517630801827-4a7f7f1b2f5d?auto=format&fit=crop&w=900&q=60" alt="Showcase Image 4">
+                <div class="glass"><strong>Design Mockups</strong><div class="muted">Print-ready artwork</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta container mt-4">
+    <h2>Join Us Today!</h2>
+    <p>Sign up to receive the latest updates and offers.</p>
+    <a class="btn btn-primary" href="contact.html">Sign Up</a>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;800&display=swap');
+
+:root{
+    /* Color */
+    --bg: #fbfdff;
+    --surface: #ffffff;
+    --muted: #6b7280;
+    --primary: #0f62fe; /* vivid blue */
+    --primary-600: #0b49c8;
+    --glass: rgba(255,255,255,0.7);
+
+    /* Elevation */
+    --e1: 0 6px 18px rgba(12, 18, 34, 0.06);
+    --e2: 0 12px 30px rgba(12, 18, 34, 0.08);
+
+    /* Spacing scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 24px;
+    --space-5: 48px;
+
+    /* Layout */
+    --container-max: 1280px;
+    --radius-lg: 14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;background:var(--bg);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#07122c}
+img{max-width:100%;height:auto;display:block}
+
+/* Utilities */
+.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--space-4)}
+.row{display:flex;gap:var(--space-4);align-items:center}
+.stack{display:flex;flex-direction:column;gap:var(--space-3)}
+.muted{color:var(--muted)}
+/* spacing utilities */
+.mt-1{margin-top:var(--space-1)}
+.mt-2{margin-top:var(--space-2)}
+.mt-3{margin-top:var(--space-3)}
+.mt-4{margin-top:var(--space-4)}
+/* layout helpers */
+.ml-3{margin-left:var(--space-3)}
+.justify-between{justify-content:space-between}
+.align-center{align-items:center}
+
+/* about image and showcase tile */
+.about-illustration{width:100%;border-radius:14px;display:block}
+.tile{border-radius:12px;overflow:hidden;box-shadow:var(--e1)}
+
+/* Header / Nav */
+header{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));box-shadow:var(--e1);z-index:120}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:Poppins, Inter, sans-serif;font-weight:700;color:var(--primary);font-size:1.125rem;text-decoration:none}
+.nav-links{display:flex;gap:var(--space-3);align-items:center}
+.nav-links a{color:rgba(7,18,44,0.85);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+.nav-links a:hover{background:rgba(15,98,254,0.06)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+.btn-primary{background:linear-gradient(180deg,var(--primary),var(--primary-600));color:#fff;box-shadow:var(--e1);transform:translateZ(0);transition:transform .15s ease,box-shadow .15s}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:var(--e2)}
+.btn-secondary{background:transparent;color:var(--primary);border:1px solid rgba(15,98,254,0.12)}
+.btn-ghost{background:transparent;color:var(--primary)}
+.btn.small{padding:6px 10px;font-size:0.95rem}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:var(--space-4);align-items:center;padding:var(--space-5) 0}
+.hero .hero-content h1{font-family:Poppins,Inter, sans-serif;font-size:2.4rem;margin:0;color:#07122c}
+.hero .hero-content p{margin:0;margin-top:8px;color:var(--muted);font-size:1.05rem}
+.hero .hero-media{border-radius:var(--radius-lg);box-shadow:var(--e2);overflow:hidden}
+
+/* Cards & Grid */
+.grid{display:grid;gap:var(--space-4)}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--e1);padding:var(--space-3);display:flex;flex-direction:column;gap:12px;transition:transform .18s ease,box-shadow .18s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--e2)}
+.card .card-media{border-radius:10px;overflow:hidden}
+.card h3{margin:0;font-size:1.05rem}
+.card p{margin:0;color:var(--muted)}
+.card .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+
+/* About / Showcase */
+.about{display:grid;grid-template-columns:1fr 420px;gap:var(--space-4);align-items:center;padding:var(--space-4) 0}
+.showcase{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3)}
+.showcase .tile{border-radius:12px;overflow:hidden;box-shadow:var(--e1)}
+
+/* Forms */
+.form-card{background:var(--surface);border-radius:12px;padding:var(--space-3);box-shadow:var(--e1)}
+label{display:block;font-weight:600;margin-top:12px}
+input,select,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid #e9f0ff;margin-top:8px}
+
+/* CTA */
+.cta{padding:var(--space-4);border-radius:12px;background:linear-gradient(90deg,var(--primary),var(--primary-600));color:#fff;text-align:center}
+
+/* Footer */
+.footer{padding:var(--space-4);text-align:center;color:var(--muted)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:var(--space-4);background:rgba(7,18,44,0.35);opacity:0;pointer-events:none;transition:opacity .18s}
+.modal.is-open{opacity:1;pointer-events:auto}
+.modal .modal-card{width:100%;max-width:720px;background:linear-gradient(180deg,var(--glass), rgba(255,255,255,0.85));backdrop-filter:blur(6px);border-radius:12px;padding:18px;box-shadow:var(--e2)}
+
+/* Order summary & product layout */
+.product-page{display:grid;grid-template-columns:420px 1fr;gap:var(--space-4);align-items:start}
+.product-media{border-radius:12px;overflow:hidden;box-shadow:var(--e2)}
+
+/* Horizontal showcase with glassmorphism */
+.showcase-scroll{display:flex;gap:16px;overflow-x:auto;padding:18px 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.showcase-scroll .tile{min-width:320px;flex:0 0 auto;scroll-snap-align:center;position:relative;border-radius:12px;overflow:hidden}
+.showcase-scroll .tile img{display:block;width:100%;height:220px;object-fit:cover;border-radius:12px}
+.showcase-scroll .tile .glass{position:absolute;left:8px;right:8px;bottom:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.25));backdrop-filter:blur(6px);box-shadow:var(--e1)}
+.showcase-scroll::-webkit-scrollbar{height:10px}
+.showcase-scroll::-webkit-scrollbar-thumb{background:rgba(7,18,44,0.12);border-radius:10px}
+
+/* Responsive */
+@media (max-width:980px){
+    .hero{grid-template-columns:1fr;}
+    .about{grid-template-columns:1fr}
+    .product-page{grid-template-columns:1fr}
+    .grid.cols-4{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:480px){
+    .nav-links{display:none}
+    nav{padding:0 12px}
+    .hero .hero-content h1{font-size:1.6rem}
+}
+
+

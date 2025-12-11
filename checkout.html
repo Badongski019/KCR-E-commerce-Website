@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Checkout — KCR</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+  <script defer src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // render order summary if helper exists
+      try{ renderOrderSummary(); }catch(e){ console.warn(e); }
+      const place = document.getElementById('place-order');
+      if(!place) return;
+      place.addEventListener('click', ()=>{
+        const user = storage.getUser();
+        const cart = storage.getCart();
+        if(!cart || cart.length === 0) return alert('Your cart is empty');
+        if(!user){ if(confirm('You must sign in to checkout. Go to account page?')) location.href = 'login.html'; return; }
+        // Demo: clear cart and show confirmation
+        storage.setCart([]);
+        alert('Order placed — thank you! (demo)');
+        location.href = 'KCR.html';
+      });
+    });
+  </script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="KCR.html">KCR</a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="login.html">Account</a>
+        <a class="btn btn-primary" href="start-order.html">Start Order</a>
+        <button id="auth-btn" class="btn" aria-haspopup="dialog">Log in</button>
+        <button id="cart-btn" class="btn btn-ghost" aria-haspopup="dialog">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Checkout</h1>
+      <p class="muted">Review your items and place your order.</p>
+    </div>
+  </section>
+
+  <section class="container mt-4">
+    <div class="card">
+      <h3>Order</h3>
+      <div id="order-summary-items"></div>
+      <div class="row mt-3 justify-between align-center">
+        <strong>Total: $<span id="order-total">0.00</span></strong>
+        <div>
+          <button id="place-order" class="btn btn-primary">Place Order (Demo)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Shared modals (auth + cart) -->
+<div id="modal-auth" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-content">
+      <h3 id="modal-title">Sign in</h3>
+      <form>
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <label for="auth-pass">Password</label>
+        <input id="auth-pass" type="password" required placeholder="password">
+        <div class="row mt-3">
+          <button type="submit" class="btn btn-primary">Continue</button>
+          <button type="button" data-close class="btn btn-secondary">Close</button>
+        </div>
+      </form>
+      <p class="muted mt-3">Demo sign-in stores a simple user object in your browser only.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-cart" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-content">
+      <h3>Your Cart</h3>
+      <div id="cart-items"></div>
+      <div class="row mt-3 justify-between align-center">
+        <strong>Total: $<span id="cart-total">0.00</span></strong>
+        <div class="row" style="gap:8px">
+          <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+          <button data-close class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>&copy; 2025 KCR. All rights reserved.</p>
+</footer>
+</body>
+</html>

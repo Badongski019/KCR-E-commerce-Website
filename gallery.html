@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery - KCR</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="KCR.html">KCR</a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="login.html">Account</a>
+        <a class="btn btn-primary" href="start-order.html">Start Order</a>
+        <button id="auth-btn" class="btn">Log in</button>
+        <button id="cart-btn" class="btn btn-ghost">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Shared modals (auth + cart) -->
+<div id="modal-auth" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-content">
+      <h3 id="modal-title">Sign in</h3>
+      <form>
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <label for="auth-pass">Password</label>
+        <input id="auth-pass" type="password" required placeholder="password">
+        <div class="row mt-3">
+          <button type="submit" class="btn btn-primary">Continue</button>
+          <button type="button" data-close class="btn btn-secondary">Close</button>
+        </div>
+      </form>
+      <p class="muted mt-3">Demo sign-in stores a simple user object in your browser only.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-cart" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-content">
+      <h3>Your Cart</h3>
+      <div id="cart-items"></div>
+      <div class="row mt-3 justify-between align-center">
+        <strong>Total: $<span id="cart-total">0.00</span></strong>
+        <div class="row" style="gap:8px">
+          <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+          <button data-close class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Gallery</h1>
+      <p class="muted">A selection of recent prints and projects.</p>
+    </div>
+  </section>
+
+  <section class="container mt-4">
+    <div class="grid cols-3">
+      <div class="card"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=60" alt="print-1" style="width:100%;border-radius:8px"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1520975910081-1bd9d9b1e9b2?auto=format&fit=crop&w=800&q=60" alt="print-2" style="width:100%;border-radius:8px"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1526318472351-c75fcf070dd5?auto=format&fit=crop&w=800&q=60" alt="print-3" style="width:100%;border-radius:8px"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=60" alt="print-4" style="width:100%;border-radius:8px"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1519741499076-8e6e9f9d7d5d?auto=format&fit=crop&w=800&q=60" alt="print-5" style="width:100%;border-radius:8px"></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=60" alt="print-6" style="width:100%;border-radius:8px"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 KCR. All rights reserved.</p>
+</footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gallery - KCR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <h1><a href="KCR.html">KCR</a></h1>
+        <div class="nav-links">
+            <a href="services.html">Services</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <a class="btn" href="start-order.html">Start Order</a>
+            <button id="auth-btn" class="btn" style="margin-left:10px">Log in</button>
+            <button id="cart-btn" title="Cart" style="margin-left:8px">Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="hero container">
+        <h1>Gallery</h1>
+        <p class="muted">Examples from recent print jobs — colors and finishes shown as delivered.</p>
+    </section>
+
+    <section class="showcase container" style="margin-top:16px">
+        <div class="showcase-item"><img src="https://images.unsplash.com/photo-1545235617-9465d7f3a1f3?auto=format&fit=crop&w=900&q=60" alt="print1"></div>
+        <div class="showcase-item"><img src="https://images.unsplash.com/photo-1520975916054-7a71c8992b52?auto=format&fit=crop&w=900&q=60" alt="print2"></div>
+        <div class="showcase-item"><img src="https://images.unsplash.com/photo-1561445859-184f71a3347d?auto=format&fit=crop&w=900&q=60" alt="print3"></div>
+        <div class="showcase-item"><img src="https://images.unsplash.com/photo-1517630801827-4a7f7f1b2f5d?auto=format&fit=crop&w=900&q=60" alt="print4"></div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2025 KCR. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Order Summary — KCR</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+<header>
+  <nav>
+    <h1><a class="logo" href="KCR.html">KCR</a></h1>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="start-order.html">Start Order</a>
+      <button id="auth-btn" class="btn" style="margin-left:10px">Log in</button>
+      <button id="cart-btn" title="Cart" style="margin-left:8px">Cart (<span id="cart-count">0</span>)</button>
+    </div>
+  </nav>
+</header>
+
+<main class="container" style="padding-top:20px">
+  <h1>Order Summary</h1>
+  <p class="muted">Review and edit items before checkout.</p>
+
+  <section style="margin-top:18px">
+    <div class="form-card">
+      <div id="order-summary-items"></div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <strong>Total: $<span id="order-total">0.00</span></strong>
+        <div>
+          <button id="checkout-now" class="btn">Proceed to Payment</button>
+          <a href="services.html" class="btn secondary">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 KCR. All rights reserved.</p>
+</footer>
+</body>
+</html>

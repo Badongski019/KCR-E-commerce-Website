@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A2 Poster — KCR</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="KCR.html">KCR</a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="login.html">Account</a>
+        <a class="btn btn-primary" href="start-order.html">Start Order</a>
+        <button id="auth-btn" class="btn">Log in</button>
+        <button id="cart-btn" class="btn btn-ghost">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Shared modals (auth + cart) -->
+<div id="modal-auth" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-content">
+      <h3 id="modal-title">Sign in</h3>
+      <form>
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <label for="auth-pass">Password</label>
+        <input id="auth-pass" type="password" required placeholder="password">
+        <div class="row mt-3">
+          <button type="submit" class="btn btn-primary">Continue</button>
+          <button type="button" data-close class="btn btn-secondary">Close</button>
+        </div>
+      </form>
+      <p class="muted mt-3">Demo sign-in stores a simple user object in your browser only.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-cart" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-content">
+      <h3>Your Cart</h3>
+      <div id="cart-items"></div>
+      <div class="row mt-3 justify-between align-center">
+        <strong>Total: $<span id="cart-total">0.00</span></strong>
+        <div class="row" style="gap:8px">
+          <button id="checkout-btn" class="btn btn-primary">Checkout</button>
+          <button data-close class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <section class="hero">
+    <h1>A2 Poster</h1>
+    <p class="muted">Vibrant, large-format posters suitable for events and promotions.</p>
+  </section>
+
+  <section class="container" style="margin-top:18px;display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:0 0 420px">
+      <img src="https://images.unsplash.com/photo-1520975916054-7a71c8992b52?auto=format&fit=crop&w=900&q=60" alt="A2 Poster" style="width:100%;border-radius:10px">
+    </div>
+
+    <div style="flex:1;min-width:260px">
+      <div class="form-card">
+        <label for="paper">Paper</label>
+        <select id="paper"><option>Satin</option><option>Matte</option><option>Gloss</option></select>
+
+        <label for="qty">Quantity</label>
+        <input id="qty" type="number" min="1" value="1">
+
+        <div style="display:flex;gap:12px;margin-top:12px">
+          <button id="add-to-cart" class="btn" data-add-to-cart data-id="poster-a2" data-name="A2 Poster" data-price="19.99">Add to cart</button>
+          <a class="btn secondary" href="start-order.html">Request Quote</a>
+        </div>
+
+        <p class="muted" style="margin-top:10px">Posters are printed with long-lasting pigment inks.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 KCR. All rights reserved.</p>
+</footer>
+</body>
+</html>

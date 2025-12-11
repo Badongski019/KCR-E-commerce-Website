@@ -1,0 +1,4 @@
+/* Small page overrides for login page — keeps main system styles in styles.css */
+body { background: linear-gradient(180deg, rgba(15,98,254,0.03), transparent); }
+.form-card { max-width: 520px; margin: 0 auto; }
+.form-card input, .form-card textarea, .form-card select { font-size: 1rem }
